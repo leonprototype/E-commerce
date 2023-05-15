@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Agregar producto al carrito</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <select name="producto_id">
+        {% for producto in productos %}
+        <option value="{{ producto.id }}">{{ producto.nombre }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Agregar</button>
+</form>
+
+
+{% endblock %}
